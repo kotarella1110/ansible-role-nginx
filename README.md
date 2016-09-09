@@ -35,7 +35,7 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. If left emp
             include fastcgi_params;
           }
 
-You can specify the configuration file you want to use as a template. The default setting is a `"nginx.conf.j2"`.
+You can specify the configuration file you want to use as a template. The default setting is a `"vhosts.j2"`.
 
     nginx_vhosts_file_src: "{{ playbook_dir }}/vhosts.j2"
 
