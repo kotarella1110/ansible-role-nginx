@@ -9,6 +9,8 @@ nginx_ppa_version: stable
 # The name of the nginx apt/yum package to install.
 nginx_package_name: "nginx"
 
+nginx_conf_file_src: "nginx.conf.j2"
+
 nginx_worker_processes: "1"
 nginx_worker_connections: "1024"
 nginx_multi_accept: "off"
@@ -45,6 +47,7 @@ nginx_extra_http_options: ""
 #      proxy_set_header   Host $http_host;
 
 nginx_remove_default_vhost: false
+nginx_vhosts_file_src: "vhosts.j2"
 nginx_vhosts_filename: "vhosts.conf"
 nginx_vhosts: []
 # Example vhost below, showing all available options:
