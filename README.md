@@ -1,6 +1,6 @@
 # Ansible Role: Nginx
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-nginx)
+[![Build Status](https://travis-ci.org/kotarella1110/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/kotarella1110/ansible-role-nginx)
 
 Installs Nginx on RedHat/CentOS or Debian/Ubuntu Linux, or FreeBSD servers.
 
@@ -35,6 +35,10 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. If left emp
             include fastcgi_params;
           }
 
+You can specify the configuration file you want to use as a template. The default setting is a `"nginx.conf.j2"`.
+
+    nginx_vhosts_file_src: "{{ playbook_dir }}/vhosts.j2"
+
 An example of a fully-populated nginx_vhosts entry, using a `|` to declare a block of syntax for the `extra_parameters`.
 
     nginx_remove_default_vhost: false
@@ -50,6 +54,10 @@ The filename to use to store vhosts configuration. If you run the role multiple 
 If you are configuring Nginx as a load balancer, you can define one or more upstream sets using this variable. In addition to defining at least one upstream, you would need to configure one of your server blocks to proxy requests through the defined upstream (e.g. `proxy_pass http://myapp1;`). See the commented example in `defaults/main.yml` for more information.
 
     nginx_user: "nginx"
+
+You can specify the configuration file you want to use as a template. The default setting is a `"nginx.conf.j2"`.
+
+    nginx_conf_file_src: "{{ playbook_dir }}/nginx.conf.j2"
 
 The user under which Nginx will run. Defaults to `nginx` for RedHat, and `www-data` for Debian.
 
@@ -115,7 +123,7 @@ None.
 
     - hosts: server
       roles:
-        - { role: geerlingguy.nginx }
+        - { role: kotarella1110.nginx }
 
 ## License
 
@@ -123,4 +131,4 @@ MIT / BSD
 
 ## Author Information
 
-This role was created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
+This role was created in 2016 by Kotaro Sugawara.
